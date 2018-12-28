@@ -1,6 +1,6 @@
 # Pig Game
 
-## Games created using Vanilla JavaScript.
+## Game created using Vanilla JavaScript.
 
 ### How to play the game:
 
