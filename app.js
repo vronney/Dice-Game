@@ -47,7 +47,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDOM.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
         // 3. Update the round score only IF the rolled number was NOT 1
-        // Added if player rolls 2 sixes in-a-row the player looses their entire score and it's the next player' turn.
+        // Added if player rolls 2 sixes in-a-row the player looses their entire score and it's the next player's turn.
         if (dice === 6 && lastDice === 6) {
             // PLayer looses score
             scores[activePlayer] = 0;
@@ -78,8 +78,18 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         // Update the UI 
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
+        // player able to set winningScore
+        var input = document.querySelector('.final-score').value;
+        var winningScore;
+
+        if (input) {
+            winningScore = input;
+        } else {
+            winningScore = 100;
+        }
+
         // Check if player has won
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= winningScore) {
             document.querySelector('#name-' + activePlayer).textContent = "You win!";
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
