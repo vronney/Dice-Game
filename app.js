@@ -56,10 +56,10 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     }
 });
 
-// New Game <button class="btn">
+// New Game btn-new
 document.querySelector('.btn-new').addEventListener('click', init);
 
-// Hold current score <button class="btn">
+// Hold current score btn-hold
 document.querySelector('.btn-hold').addEventListener('click', function () {
     if (gamePlaying) {
         // Add current score to global 
@@ -81,7 +81,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     }
 });
 
-
+// Next player will be changed and active status will update
 function nextPlayer() {
     // Next Player
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
