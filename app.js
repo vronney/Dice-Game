@@ -14,6 +14,8 @@ var scores, roundScore, activePlayer, gamePlaying;
 
 init();
 
+var lastDice;
+
 function init() {
     scores = [0, 0];
     roundScore = 0;
@@ -45,7 +47,13 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         diceDOM.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
         // 3. Update the round score only IF the rolled number was NOT 1
-        if (dice !== 1) {
+        // Added if player rolls 2 sixes in-a-row the player looses their entire score and it's the next player' turn.
+        if (dice === 6 && lastDice === 6) {
+            // PLayer looses score
+            scores[activePlayer] = 0;
+            document.querySelector('#score-' + activePlayer).textContent = '0';
+            nextPlayer();
+        } else if (dice !== 1) {
             // Add score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -53,6 +61,8 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             // Next player
             nextPlayer();
         }
+
+        lastDice = dice;
     }
 });
 
