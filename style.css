@@ -278,16 +278,6 @@ i {
     cursor: pointer;
 }
 
-.logo-image {
-    height: 30px;
-    width: 30px;
-    padding-top: 12px;
-}
-
-.modal-footer h3:last-of-type {
-    padding-bottom: 12px;
-}
-
 @keyframes modalopen {
     from {
         opacity: 0
