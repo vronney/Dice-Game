@@ -1,4 +1,4 @@
-# Pig Game
+# Dice Game
 
 ## Game created using Vanilla JavaScript.
 
